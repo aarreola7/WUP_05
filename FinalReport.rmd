@@ -11,6 +11,9 @@ require(tigerstats)
 triUmp <-read.csv(file="triUmpsal.csv",header=TRUE)
 ```
 
+
+
+
 # Introduction
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?.  If you skimp in this section expect to be marked down in your grade. Paint a picture of the project a couple of paragraphs is expected!-->
@@ -20,6 +23,16 @@ A new  preventative aides drug (triUmpsal) is under test in clinical trials. Con
 # Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
+
+I need to use the filter command to get a subset of data of the people in triump down to smaller set of data comprised of DrugUser only.
+
+
+
+```{r}
+DRUGUSR <- filter(triUmp,DrugUser == "yes")
+```
+
+
 
 # Results
 
