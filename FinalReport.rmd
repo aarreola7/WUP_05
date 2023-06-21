@@ -38,15 +38,49 @@ DRUGUSR <- filter(triUmp,DrugUser == "yes")
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
+
+```{r}
+DRUGUSR <- DRUGUSR %>%
+mutate(across(where(is.character), as.factor))
+```
+
 ## Descriptive Results
 
 ### Graphical Descriptive Results
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
+
+```{r}
+dd2 <- DRUGUSR %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+
+```
+
+The first plot shows how many people got infected. It looks like it is maybe less than 100 people with Aids. In the % plot it treats both groups in % terms. It shows that 25% of the people that took the drug did not get aids and 75% of the people that got aids took the placebo
+
+
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=DRUGUSR)
+rowPerc(table1)
+colPerc(table1)
+```
+
+Of the people that go aids 24.29 took the drug .75.71% took the placebo. From the people that haven't got anything was 47.59% to 52.41% This is is a sign of a drug that looks like it is working. 
 
 ## Inferential Results
 
