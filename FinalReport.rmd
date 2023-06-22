@@ -105,5 +105,4 @@ The probability of getting this result is an extremely low number of .0000000423
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
-We had to get  smaller group using dplyr to separate into drugusers 
-
+In this writ up we used my tricks rmd.Dplyr to make the triUmp group into an even smaller group called DRUGUSR. We saw how the drug and the placebo worked in getting a positive result for an effective drug. The drug users had a positive results showing us that the drug was in fact effective, and we can see those results in the graphical and numerical data.The results from the inferential test confirms that the drug was in fact a working drug.
